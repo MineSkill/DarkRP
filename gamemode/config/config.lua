@@ -6,7 +6,7 @@ Set to true or false
 -- voice3D - Enable/disable 3DVoice is enabled
 GM.Config.voice3D						= true
 -- AdminsCopWeapons - Enable/disable admins spawning with cop weapons
-GM.Config.AdminsCopWeapons 				= true
+GM.Config.AdminsCopWeapons 				= false
 -- allow people getting their own custom jobs
 GM.Config.allowjobswitch 				= true
 -- allowrpnames - Allow Players to Set their RP names using the /rpname command.
@@ -58,9 +58,9 @@ GM.Config.doorwarrants 					= true
 -- dropmoneyondeath - Enable/disable whether people drop money on death.
 GM.Config.dropmoneyondeath 				= false
 -- droppocketarrest - Enable/disable whether people drop the stuff in their pockets when they get arrested.
-GM.Config.droppocketarrest 				= false
+GM.Config.droppocketarrest 				= true
 -- droppocketdeath - Enable/disable whether people drop the stuff in their pockets when they die.
-GM.Config.droppocketdeath 				= true
+GM.Config.droppocketdeath 				= false
 -- dropweapondeath - Enable/disable whether people drop their current weapon when they die.
 GM.Config.dropweapondeath 				= false
 -- Whether players can drop the weapons they spawn with
@@ -104,7 +104,7 @@ GM.Config.ooc 							= true
 -- propertytax - Enable/disable property tax.
 GM.Config.propertytax 					= false
 -- proppaying - Whether or not players should pay for spawning props.
-GM.Config.proppaying 					= false
+GM.Config.proppaying 					= true
 -- propspawning - Enable/disable props spawning for non-admins.
 GM.Config.propspawning 					= true
 -- removeclassitems - Enable/disable shipments/microwaves/etc. removal when someone changes team.
@@ -124,7 +124,7 @@ GM.Config.telefromjail 					= true
 -- teletojail - Enable/disable teleporting to jail.
 GM.Config.teletojail 					= true
 -- unlockdoorsonstart - Enable/Disable unlocking all doors on map start.
-GM.Config.unlockdoorsonstart 			= false
+GM.Config.unlockdoorsonstart 			= true
 -- voiceradius - Enable/disable local voice chat.
 GM.Config.voiceradius 					= true
 -- tax - Whether players pay taxes on their wallets.
@@ -148,11 +148,11 @@ Value settings
 -- adminnpcs - Whether or not NPCs should be admin only. 0 = everyone, 1 = admin or higher, 2 = superadmin or higher, 3 = rcon only
 GM.Config.adminnpcs 					= 3
 -- adminsents - Whether or not SENTs should be admin only. 0 = everyone, 1 = admin or higher, 2 = superadmin or higher, 3 = rcon only
-GM.Config.adminsents 					= 1
+GM.Config.adminsents 					= 3
 -- adminvehicles - Whether or not vehicles should be admin only. 0 = everyone, 1 = admin or higher, 2 = superadmin or higher, 3 = rcon only
 GM.Config.adminvehicles 				= 3
 -- adminweapons - Who can spawn weapons: 0: admins only, 1: supadmins only, 2: no one
-GM.Config.adminweapons					= 1
+GM.Config.adminweapons					= 2
 -- arrestspeed - Sets the max arrest speed.
 GM.Config.arrestspeed					= 120
 -- babygodtime - How long the babygod lasts
@@ -161,11 +161,11 @@ GM.Config.babygodtime					= 5
 -- Leave this on at least a few seconds to prevent people from spamming sounds. Set to 0 to disable.
 GM.Config.chatsoundsdelay				= 5
 -- deathfee - the amount of money someone drops when dead.
-GM.Config.deathfee						= 30
+GM.Config.deathfee						= 0
 -- decaltimer - Sets the time to clear clientside decals. (seconds)
 GM.Config.decaltimer					= 120
 -- demotetime - Number of seconds before a player can rejoin a team after demotion from that team.
-GM.Config.demotetime					= 120
+GM.Config.demotetime					= 600
 -- doorcost - Sets the cost of a door.
 GM.Config.doorcost						= 30
 -- entremovedelay - how long to wait before removing a bought entity after disconnect.
@@ -173,9 +173,9 @@ GM.Config.entremovedelay				= 0
 -- jailtimer - Sets the jailtimer. (in seconds)
 GM.Config.jailtimer						= 120
 -- maxdoors - Sets the max amount of doors one can own.
-GM.Config.maxdoors						= 20
+GM.Config.maxdoors						= 6
 -- maxdrugs - Sets max drugs.
-GM.Config.maxdrugs						= 2
+GM.Config.maxdrugs						= 40
 -- maxfoods - Sets the max food cartons per Microwave owner.
 GM.Config.maxfoods						= 2
 -- maxlawboards - The maximum number of law boards the mayor can place.
@@ -259,13 +259,13 @@ GM.Config.MoneyClass = "spawned_money"
 GM.Config.DarkRPSkin = "DarkRP"
 GM.Config.currency = "$"
 GM.Config.chatCommandPrefix = "/"
-GM.Config.F1MenuHelpPage = "http://wiki.darkrp.com/index.php/Main_Page"
-GM.Config.F1MenuHelpPageTitle = "Wiki page"
+GM.Config.F1MenuHelpPage = ""
+GM.Config.F1MenuHelpPageTitle = ""
 
 -- Put Steam ID's and ranks in this list, and the players will have that rank when they join.
 GM.Config.DefaultPlayerGroups = {
-	["STEAM_0:0:00000000"] = "superadmin",
-	["STEAM_0:0:11111111"] = "admin",
+	["STEAM_0:0:54066961"] = "superadmin",
+	["STEAM_0:1:48806683"] = "superadmin",
 }
 
 -- The list of weapons that players are not allowed to drop. Items set to true are not allowed to be dropped
@@ -376,7 +376,7 @@ GM.Config.AFKDelay = 300
 Hitmenu module
 ---------------------------------------------------------------------------*/
 -- The minimum price for a hit
-GM.Config.minHitPrice = 200
+GM.Config.minHitPrice = 1000
 -- The minimum distance between a hitman and his customer when they make the deal
 GM.Config.minHitDistance = 150
 -- The text that tells the player he can press use on the hitman to request a hit
