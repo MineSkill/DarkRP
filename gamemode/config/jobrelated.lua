@@ -34,6 +34,38 @@ TEAM_CITIZEN = DarkRP.createJob("Citizen", {
 	candemote = false
 })
 
+TEAM_UNDERCOVER = DarkRP.createJob("Citizen", {
+	color = Color(20, 150, 20, 255),
+	model = {
+		"models/player/Group01/Female_01.mdl",
+		"models/player/Group01/Female_02.mdl",
+		"models/player/Group01/Female_03.mdl",
+		"models/player/Group01/Female_04.mdl",
+		"models/player/Group01/Female_06.mdl",
+		"models/player/group01/male_01.mdl",
+		"models/player/Group01/Male_02.mdl",
+		"models/player/Group01/male_03.mdl",
+		"models/player/Group01/Male_04.mdl",
+		"models/player/Group01/Male_05.mdl",
+		"models/player/Group01/Male_06.mdl",
+		"models/player/Group01/Male_07.mdl",
+		"models/player/Group01/Male_08.mdl",
+		"models/player/Group01/Male_09.mdl"
+	},
+	description = [[You are an undercover police officer! Arrest criminals and keep citizens safe. You serve under the police chief.]],
+	weapons = {"arrest_stick", "unarrest_stick", "weapon_glock2", "stunstick", "door_ram", "weaponchecker"},
+	command = "undercover",
+	max = 2,
+	salary = GAMEMODE.Config.normalsalary * 1.45
+	admin = 0,
+	vote = false,
+	hasLicense = false,
+	ammo = {
+		["pistol"] = 60,
+	}
+	candemote = false
+})
+
 TEAM_POLICE = DarkRP.createJob("Civil Protection", {
 	color = Color(25, 25, 170, 255),
 	model = {"models/player/police.mdl", "models/player/police_fem.mdl"},
@@ -196,6 +228,21 @@ TEAM_HOBO = DarkRP.createJob("Hobo", {
 	hobo = true
 })
 
+TEAM_NULL = DarkRP.createJob("infoplayerstart.mdl", {
+	color = Color(35, 46, 142, 255),
+	model = "models/player/infoplayerstart.mdl",
+	description = [[This class serves no purpose what so ever.
+	It's only here for later use in code.]],
+	weapons = {},
+	command = "null",
+	max = 1,
+	salary = 0,
+	admin = 2,
+	vote = false,
+	hasLicense = false,
+	candemote = false,
+})
+
 -- Compatibility for when default teams are disabled
 TEAM_CITIZEN = TEAM_CITIZEN  or -1
 TEAM_POLICE  = TEAM_POLICE   or -1
@@ -217,9 +264,11 @@ AddDoorGroup("NAME OF THE GROUP HERE, you see this when looking at a door", Team
 
 The default door groups, can also be used as examples:
 */
-AddDoorGroup("Cops and Mayor only", TEAM_CHIEF, TEAM_POLICE, TEAM_MAYOR)
-AddDoorGroup("Gundealer only", TEAM_GUN)
-
+AddDoorGroup("Cops and Mayor only", TEAM_CHIEF, TEAM_POLICE, TEAM_MAYOR, TEAM_UNDERCOVER)
+AddDoorGroup("Jail Door", TEAM_MAYOR, TEAM_POLICE)
+AddDoorGroup("Reserved1", TEAM_NULL)
+AddDoorGroup("Reserved2", TEAM_NULL)
+AddDoorGroup("Reserved3", TEAM_NULL)
 
 /*
 --------------------------------------------------------
@@ -230,8 +279,8 @@ AddAgenda(Title of the agenda, Manager (who edits it), Listeners (the ones who j
 The default agenda's, can also be used as examples:
 */
 AddAgenda("Gangster's agenda", TEAM_MOB, {TEAM_GANG})
-AddAgenda("Police agenda", TEAM_MAYOR, {TEAM_CHIEF, TEAM_POLICE})
-
+AddAgenda("Police agenda", TEAM_MAYOR, TEAM_CHIEF {TEAM_UNDERCOVER, TEAM_POLICE})
+AddAgenda("Null Agenda", TEAM_NULL {TEAM_NULL})
 
 /*
 ---------------------------------------------------------------------------
@@ -248,6 +297,7 @@ This one is for people who know how to script Lua.
 */
 GAMEMODE:AddGroupChat(function(ply) return ply:isCP() end)
 GAMEMODE:AddGroupChat(TEAM_MOB, TEAM_GANG)
+GAMEMODe:AddGroupChat(TEAM_NULL)
 
 /*---------------------------------------------------------------------------
 Define which team joining players spawn into and what team you change to if demoted
@@ -262,15 +312,17 @@ GAMEMODE.CivilProtection = {
 	[TEAM_POLICE] = true,
 	[TEAM_CHIEF] = true,
 	[TEAM_MAYOR] = true,
+	[TEAM_UNDERCOVER] = true,
 }
 
 /*---------------------------------------------------------------------------
 Enable hitman goodies on this team
 ---------------------------------------------------------------------------*/
-DarkRP.addHitmanTeam(TEAM_MOB)
+DarkRP.addHitmanTeam(TEAM_HITMAN)
 
 /*---------------------------------------------------------------------------
 Default demote groups
 ---------------------------------------------------------------------------*/
 DarkRP.createDemoteGroup("Cops", {TEAM_POLICE, TEAM_CHIEF})
 DarkRP.createDemoteGroup("Gangsters", {TEAM_GANG, TEAM_MOB})
+DarkRP.createDemoteGroup("Mayor", {TEAM_CHIEF, TEAM_MAYOR})
