@@ -243,6 +243,17 @@ TEAM_NULL = DarkRP.createJob("infoplayerstart.mdl", {
 	candemote = false,
 })
 
+TEAM_OWNER = AddExtraTeam("Server Owner", Color(153, 51, 255, 255), "models/player/tesla_power_armor/slow.mdl", [[The almighty server owners!]], {}, "owner", 3, 500, 2, false, false, false)
+
+TEAM_SWAT = AddExtraTeam("Swat Member", Color(51, 0, 204, 255), "models/player/group04/male_07.mdl", [[You are a swat member. You will be called when the
+cops need heavy fire power. You server under the 
+swat chief]], {}, "swat", 4, 60, 0, true, false, false)
+
+TEAM_SWATCHIEF = AddExtraTeam("Swat Chief", Color(51, 0, 204, 255), "models/player/deltaforce/m04.mdl", [[You are the swat chief. Command the swat team and
+lead them into battle. You serve under the mayor.]], {}, "swatchief", 1, 60, 0, true, false, {TEAM_SWAT})
+
+
+
 -- Compatibility for when default teams are disabled
 TEAM_CITIZEN = TEAM_CITIZEN  or -1
 TEAM_POLICE  = TEAM_POLICE   or -1
