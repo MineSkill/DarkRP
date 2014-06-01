@@ -290,7 +290,7 @@ AddAgenda(Title of the agenda, Manager (who edits it), Listeners (the ones who j
 The default agenda's, can also be used as examples:
 */
 AddAgenda("Gangster's agenda", TEAM_MOB, {TEAM_GANG})
-AddAgenda("Police agenda", TEAM_MAYOR, TEAM_CHIEF, {TEAM_UNDERCOVER, TEAM_POLICE})
+AddAgenda("Police agenda", TEAM_MAYOR, {TEAM_UNDERCOVER, TEAM_POLICE})
 AddAgenda("Null Agenda", TEAM_NULL, {TEAM_NULL})
 
 /*
