@@ -56,13 +56,13 @@ TEAM_UNDERCOVER = DarkRP.createJob("Citizen", {
 	weapons = {"arrest_stick", "unarrest_stick", "weapon_glock2", "stunstick", "door_ram", "weaponchecker"},
 	command = "undercover",
 	max = 2,
-	salary = GAMEMODE.Config.normalsalary * 1.45
+	salary = GAMEMODE.Config.normalsalary * 1.45,
 	admin = 0,
 	vote = false,
 	hasLicense = false,
 	ammo = {
-		["pistol"] = 60,
-	}
+		["pistol"] = 60
+	},
 	candemote = false
 })
 
@@ -84,7 +84,7 @@ TEAM_POLICE = DarkRP.createJob("Civil Protection", {
 	vote = true,
 	hasLicense = true,
 	ammo = {
-		["pistol"] = 60,
+		["pistol"] = 60
 	}
 })
 
@@ -184,7 +184,7 @@ TEAM_CHIEF = DarkRP.createJob("Civil Protection Chief", {
 	chief = true,
 	NeedToChangeFrom = TEAM_POLICE,
 	ammo = {
-		["pistol"] = 60,
+		["pistol"] = 60
 	}
 })
 
@@ -240,7 +240,7 @@ TEAM_NULL = DarkRP.createJob("infoplayerstart.mdl", {
 	admin = 2,
 	vote = false,
 	hasLicense = false,
-	candemote = false,
+	candemote = false
 })
 
 TEAM_OWNER = AddExtraTeam("Server Owner", Color(153, 51, 255, 255), "models/player/tesla_power_armor/slow.mdl", [[The almighty server owners!]], {}, "owner", 3, 500, 2, false, false, false)
@@ -290,8 +290,8 @@ AddAgenda(Title of the agenda, Manager (who edits it), Listeners (the ones who j
 The default agenda's, can also be used as examples:
 */
 AddAgenda("Gangster's agenda", TEAM_MOB, {TEAM_GANG})
-AddAgenda("Police agenda", TEAM_MAYOR, TEAM_CHIEF {TEAM_UNDERCOVER, TEAM_POLICE})
-AddAgenda("Null Agenda", TEAM_NULL {TEAM_NULL})
+AddAgenda("Police agenda", TEAM_MAYOR, TEAM_CHIEF, {TEAM_UNDERCOVER, TEAM_POLICE})
+AddAgenda("Null Agenda", TEAM_NULL, {TEAM_NULL})
 
 /*
 ---------------------------------------------------------------------------
@@ -308,7 +308,7 @@ This one is for people who know how to script Lua.
 */
 GAMEMODE:AddGroupChat(function(ply) return ply:isCP() end)
 GAMEMODE:AddGroupChat(TEAM_MOB, TEAM_GANG)
-GAMEMODe:AddGroupChat(TEAM_NULL)
+GAMEMODE:AddGroupChat(TEAM_NULL)
 
 /*---------------------------------------------------------------------------
 Define which team joining players spawn into and what team you change to if demoted
@@ -323,7 +323,7 @@ GAMEMODE.CivilProtection = {
 	[TEAM_POLICE] = true,
 	[TEAM_CHIEF] = true,
 	[TEAM_MAYOR] = true,
-	[TEAM_UNDERCOVER] = true,
+	[TEAM_UNDERCOVER] = true
 }
 
 /*---------------------------------------------------------------------------
